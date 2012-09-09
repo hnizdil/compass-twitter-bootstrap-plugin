@@ -1,0 +1,37 @@
+// STACKED NAV
+// -----------
+
+@mixin nav-tabs-stacked
+  +nav-tabs
+  border-bottom: 0
+  > li
+    float: none
+    > a
+      margin-right: 0 // no need for the gap between nav items
+      border: 1px solid #ddd
+      +border-radius(0)
+    > a:hover
+      border-color: #ddd
+      z-index: 2
+  > li:first-child 
+    > a
+      +border-top-radius(4px)
+  > li:last-child
+    > a
+      +border-bottom-radius(4px)  
+  // Dropdowns in stacked tabs
+  .open 
+    > a:hover
+      border-color: $grayLight
+
+// Pills stacked
+@mixin nav-pills-stacked
+  +nav-pills
+  > li
+    float: none
+    > a
+      margin-right: 0 // no need for the gap between nav items
+      margin-bottom: 3px
+  > li:last-child
+    > a
+      margin-bottom: 1px // decrease margin to match sizing of stacked tabs

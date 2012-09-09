@@ -1,0 +1,57 @@
+// TABS
+// ----
+@mixin nav-tabs
+  +base-nav
+  +bootstrap-clearfix 
+  border-bottom: 1px solid #ddd
+  > li
+    float: left
+    margin-bottom: -1px
+    > a
+      padding-right: 12px
+      padding-left: 12px
+      margin-right: 2px
+      line-height: 14px // keeps the overall height an even number
+      padding-top: 8px
+      padding-bottom: 8px
+      line-height: $baseLineHeight
+      border: 1px solid transparent
+      +border-radius(4px 4px 0 0)
+      &:hover
+        border-color: $grayLighter $grayLighter #ddd
+  > .active > a,
+  > .active > a:hover
+    color: $gray
+    background-color: $white
+    border: 1px solid #ddd
+    border-bottom-color: transparent
+    cursor: default
+  .dropdown-menu
+    +border-radius(0 0 6px 6px) // remove the top rounded corners here since there is a hard edge above the menu
+
+
+// Active dropdown links
+// -------------------------
+@mixin dropdown-toggle($color)
+  .dropdown-toggle .caret
+    margin-top: 8px
+  .active .dropdown-toggle .caret
+    border-top-color: $color
+    border-bottom-color: $color
+
+// Open dropdowns
+// -------------------------
+@mixin dropdowns
+  .open .dropdown-toggle,
+  > li.dropdown.open.active > a:hover
+    color: $white
+    background-color: $grayLight
+    border-color: $grayLight
+  li.dropdown.open .caret,
+  li.dropdown.open.active .caret,
+  li.dropdown.open a:hover .caret
+    border-top-color: $white
+    border-bottom-color: $white
+    +opacity(100)
+
+

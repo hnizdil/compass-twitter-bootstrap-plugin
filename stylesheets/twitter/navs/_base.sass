@@ -1,0 +1,63 @@
+//
+// Navs base
+// --------------------------------------------------
+
+@mixin base-nav
+  margin-left: 0
+  margin-bottom: $baseLineHeight
+  list-style: none
+
+  // Make links block level
+  > li > a
+    display: block
+
+  > li > a:hover
+    text-decoration: none
+    background-color: $grayLighter
+
+  // Redeclare pull classes because of specifity
+  & > .pull-right
+    float: right
+
+  // Default dropdown links
+  // -------------------------
+  // Make carets use linkColor to start
+  .dropdown-toggle .caret
+    border-top-color: $linkColor
+    border-bottom-color: $linkColor
+    margin-top: 6px
+  .dropdown-toggle:hover .caret
+    border-top-color: $linkColorHover
+    border-bottom-color: $linkColorHover
+  // Active:hover dropdown links
+  // -------------------------
+  > .dropdown.active > a:hover
+    cursor: pointer
+
+  // DISABLED STATES
+  // ---------------
+
+  // Gray out text
+  .disabled > a
+    color: $grayLight
+  // Nuke hover effects
+  .disabled > a:hover
+    text-decoration: none
+    background-color: transparent
+    cursor: default
+
+
+// Nav headers (for dropdowns and lists)
+@mixin nav-header
+  display: block
+  padding: 3px 15px
+  font-size: 11px
+  font-weight: bold
+  line-height: $baseLineHeight
+  color: $grayLight
+  text-shadow: 0 1px 0 rgba(255,255,255,.5)
+  text-transform: uppercase
+
+  // Space them out when they follow another list item (link)
+  li + &
+    margin-top: 9px
